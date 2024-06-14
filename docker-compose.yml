@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+    command: >
+      sh -c "uvicorn app.main:app --host 0.0.0.0 --port 8000"
+
+  redis:
+    image: "redis:alpine"
+
+  celery:
+    build: .
+    command: celery -A app.main.celery_app worker --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
