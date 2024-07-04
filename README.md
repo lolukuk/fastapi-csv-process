@@ -30,8 +30,7 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/fastapi-csv-process
-/fastapi-csv-process.git
+   git clone https://github.com/fastapi-csv-process/fastapi-csv-process.git
    cd fastapi-csv-process
    ```
 
